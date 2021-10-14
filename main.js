@@ -1,0 +1,1 @@
+let remButtons = document.getElementsByClassName('btn-danger')
