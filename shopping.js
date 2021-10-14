@@ -14,6 +14,7 @@ const updateCartTotal = () => {
         let quantity = quantityElement.value
         total += price * quantity;
     }
+
     total = Math.round(total * 100) / 100;
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total;
 }
@@ -138,8 +139,5 @@ for (let i = 0; i < addToCartButtons.length; i++) {
 
 document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked);
 
-
-
-
-
 createButton.addEventListener('click', createNewItem);
+
