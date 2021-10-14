@@ -255,3 +255,28 @@ html, body {
     margin: 40px auto 80px auto;
     font-size: 1.75em;
 }
+
+.input-items {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.input-items input{
+    margin-bottom: 15px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-input {
+    width: 300px;
+}
+
+.btn-create {
+    margin-top: 10px;
+    width: 100px;
+}

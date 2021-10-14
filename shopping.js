@@ -1,3 +1,5 @@
+// Shopping Cart Functionalities
+
 let remButtons = document.getElementsByClassName('btn-danger');
 
 const updateCartTotal = () => {
@@ -78,6 +80,44 @@ const purchaseClicked = () => {
     updateCartTotal()
 }
 
+// Create New Item
+const createButton = document.getElementsByClassName('btn-create')[0];
+
+
+const createNewItem = () => {
+    const newItemTitle = document.getElementById('title-input').value;
+    const newItemPrice = document.getElementById('price-input').value;
+    const newItemImgSrc = document.getElementById('img-input').value;
+    
+    const newEl = {
+        title: newItemTitle,
+        price: newItemPrice,
+        img: newItemImgSrc,
+    }
+
+    const itemListEl = document.getElementsByClassName('shop-items')[0];
+    const newDiv = document.createElement('div');
+
+    const newElHtml = `
+        <span class="shop-item-title">${newEl.title}</span>
+        <img class="shop-item-image" src="${newEl.img}">
+        <div class="shop-item-details">
+            <span class="shop-item-price">$${newEl.price}</span>
+            <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+        </div>`
+
+    newDiv.innerHTML = newElHtml;
+    newDiv.classList.add('shop-item');
+    itemListEl.append(newDiv);
+
+    document.getElementById('title-input').value = '';
+    document.getElementById('price-input').value = '';
+    document.getElementById('img-input').value = '';
+
+    const addButton = newDiv.getElementsByClassName('shop-item-button')[0];
+    addButton.addEventListener('click', addToCartClicked)
+}
+
 for (let i = 0; i < remButtons.length; i++) {
     let button = remButtons[i];
     button.addEventListener("click", removeCartItem)
@@ -98,3 +138,8 @@ for (let i = 0; i < addToCartButtons.length; i++) {
 
 document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked);
 
+
+
+
+
+createButton.addEventListener('click', createNewItem);
